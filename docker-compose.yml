@@ -2,6 +2,8 @@ version: "3"
 
 volumes:
   db-volume:
+  vendor-volume:
+  node_modules-volume:
 
 services:
 
@@ -12,6 +14,8 @@ services:
    container_name: web
    volumes:
      - ./src:/var/www/html
+     - vendor-volume:/var/www/html/vendor
+     - node_modules-volume:/var/www/html/node_modules
 
  db:
    image: mysql:8.0
