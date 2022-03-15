@@ -15,8 +15,11 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('kana')->nullable();
+            $table->string('name_last')->nullable();
+            $table->string('name_first')->nullable();
+            $table->string('kana_last')->nullable();
+            $table->string('kana_first')->nullable();
+            $table->unsignedTinyInteger('sex')->default(0);
             $table->text('memo')->nullable();
             $table->dateTime('retired_at')->nullable();
             $table->softDeletes();
