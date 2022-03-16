@@ -108,4 +108,12 @@ return [
 
     'password_timeout' => 10800,
 
+
+    'dashbord' => [
+        'web' => [
+            'prefix' => 'admin',
+            'home'   => '/dashbord',
+        ],
+    ],
+
 ];

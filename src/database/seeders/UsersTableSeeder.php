@@ -22,7 +22,7 @@ class UsersTableSeeder extends Seeder
             [
                 'tenant_id' => 1,
                 'name' => 'テスト管理者1',
-                'email' => 'test1@example.com',
+                'email' => 'test1@dev.com',
                 'email_verified_at' => null,
                 'password' => Hash::make('password'),
                 'deleted_at' => null,
@@ -32,7 +32,7 @@ class UsersTableSeeder extends Seeder
             [
                 'tenant_id' => 2,
                 'name' => 'テスト管理者2',
-                'email' => 'test2@example.com',
+                'email' => 'test2@dev.com',
                 'email_verified_at' => null,
                 'password' => Hash::make('password'),
                 'deleted_at' => null,

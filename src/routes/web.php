@@ -13,12 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+$authRoute = config('auth.dashbord.web');
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::prefix($authRoute['prefix'])->middleware(['auth'])->group(function () {
+    Route::get($authRoute['home'], function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
+
 
 require __DIR__.'/auth.php';
