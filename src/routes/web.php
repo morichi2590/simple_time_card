@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix($authRoute['prefix'])->middleware(['auth'])->group(function () {
+Route::prefix($authRoute['prefix'])->middleware(['auth'])->group(function () use ($authRoute){
     Route::get($authRoute['home'], function () {
         return view('dashboard');
     })->name('dashboard');
