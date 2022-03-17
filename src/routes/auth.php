@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 
 $authRoute = config('auth.dashbord.web');
 
-Route::prefix($authRoute['prefix'])->middleware('guest')->group(function () {
+Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
                 ->name('register');
 

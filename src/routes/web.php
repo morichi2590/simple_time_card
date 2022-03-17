@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\TimeCardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +22,9 @@ Route::get('/', function () {
 });
 
 Route::prefix($authRoute['prefix'])->middleware(['auth'])->group(function () use ($authRoute){
-    Route::get($authRoute['home'], function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get($authRoute['home'], [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::get('/timecard/{shop_code}', [TimeCardController::class, 'index'])->name('timecard.index');
 });
 
 

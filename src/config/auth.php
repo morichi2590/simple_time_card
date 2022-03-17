@@ -112,7 +112,7 @@ return [
     'dashbord' => [
         'web' => [
             'prefix' => 'admin',
-            'home'   => '/dashbord',
+            'home'   => '/dashboard',
         ],
     ],
 
