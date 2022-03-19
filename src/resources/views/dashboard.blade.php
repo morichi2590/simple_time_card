@@ -15,15 +15,17 @@
         </div>
     </div> -->
 
-    @foreach($shopList as $shop)
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    <a href="{{ route( 'timecard.index' ,[ 'shop_code' => $shop->id ]) }}">{{$shop->name}}</a>
+            @foreach($shopList as $shop)
+            <a href="{{ route( 'timecard.index' ,[ 'shop_code' => $shop->id ]) }}" target="_blank">
+                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 bg-white border-b border-gray-200">
+                        {{$shop->name}}
+                    </div>
                 </div>
-            </div>
+            </a>
+            @endforeach
         </div>
     </div>
-    @endforeach
 </x-app-layout>

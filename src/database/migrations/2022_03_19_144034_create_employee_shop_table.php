@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('belong_shops', function (Blueprint $table) {
+        Schema::create('employee_shop', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('tenant_id');
-            $table->unsignedBigInteger('shop_id');
             $table->unsignedBigInteger('employee_id');
-            $table->softDeletes();
+            $table->unsignedBigInteger('shop_id');
+            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
+            $table->foreign('shop_id')->references('id')->on('shops')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('belong_shops');
+        Schema::dropIfExists('employee_shop');
     }
 };
