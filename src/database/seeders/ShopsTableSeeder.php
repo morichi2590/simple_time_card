@@ -15,6 +15,8 @@ class ShopsTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
         DB::table('shops')->truncate();
 
         DB::table('shops')->insert([
@@ -40,5 +42,7 @@ class ShopsTableSeeder extends Seeder
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
         ]);
+
+        
     }
 }

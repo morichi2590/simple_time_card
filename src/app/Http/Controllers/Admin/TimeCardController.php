@@ -13,9 +13,8 @@ class TimeCardController extends Controller
     {
         $shop = $id;
 
-        $user = Shop::find($shop)->employees;
-        dd($user);
+        $emloyeeList = Shop::find($shop)->employees;
 
-        return view('timecard.index',compact('shop'));
+        return view('timecard.index',compact('emloyeeList'));
     }
 }
