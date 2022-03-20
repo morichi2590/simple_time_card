@@ -10,10 +10,12 @@
             @foreach($emloyeeList as $employee)
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    {{$employee->name_last}}
+                    {{$employee->name_last
+                    }}
                 </div>
             </div>
             @endforeach
         </div>
     </div>
+    
 </x-app-layout>

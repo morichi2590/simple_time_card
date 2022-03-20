@@ -16,11 +16,10 @@ return new class extends Migration
         Schema::create('work_records', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('employee_id');
-            $table->dateTime('work_start')->nullable();
-            $table->dateTime('work_end')->nullable();
-            $table->dateTime('break_start')->nullable();
-            $table->dateTime('break_end')->nullable();
-            $table->text('memo')->nullable();
+            $table->date('work_date');
+            $table->unsignedTinyInteger('work_status');
+            $table->dateTime('punch_clock')->nullable();
+            $table->dateTime('work_record')->nullable();            
             $table->softDeletes();
             $table->timestamps();
         });
