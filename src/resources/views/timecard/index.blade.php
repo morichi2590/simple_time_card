@@ -18,37 +18,41 @@
         </div>
     </div>
 
-    <div id="easyModal" class="modal">
-        <div class="modal-content">
+    <div id="easyModal" class="modal w-full hidden fixed z-10">
+        <div class="modal-content rounded z-20">
             <div class="modal-header">
-                <h1>Great job 🎉</h1>
-                <span class="modalClose">X</span>
+                <x-button class="ml-3">出勤</x-button>
+                <x-button class="ml-3">退勤</x-button>
+                <span class="modalClose"></span>
             </div>
         </div>
     </div>
 
     <style>
         .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
             left: 0;
             top: 0;
             height: 100%;
-            width: 100%;
-            overflow: auto;
             background-color: rgba(0,0,0,0.5);
         }
         .modal-content {
-            background-color: #f4f4f4;
-            margin: 20% auto;
-            width: 50%;
-            box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.17);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            width: 80%;
+            max-width: 600px;
+            padding: 50px;
+            background-color: #fff;
             animation-name: modalopen;
             animation-duration: 1s;
         }
         .modalClose {
             font-size: 2rem;
+        }
+        @keyframes modalopen {
+            from {opacity: 0}
+            to {opacity: 1}
         }
     </style>
 
