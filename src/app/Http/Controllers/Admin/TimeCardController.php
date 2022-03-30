@@ -12,11 +12,20 @@ class TimeCardController extends Controller
 {
     public function index (Request $request,$id)
     {
+        $shop_id = $id;
+
+        $emloyeeList = Shop::find($shop_id)->employees;
+
+        return view('front.index',compact('shop_id','emloyeeList'));
+    }
+
+    public function input (Request $request,$id)
+    {
         $shop = $id;
 
         $emloyeeList = Shop::find($shop)->employees;
 
-        return view('timecard.index',compact('emloyeeList'));
+        return view('front.input',compact('emloyeeList'));
     }
 
 

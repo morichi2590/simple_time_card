@@ -25,6 +25,7 @@ Route::prefix($authRoute['prefix'])->middleware(['auth'])->group(function () use
     Route::get($authRoute['home'], [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('/timecard/{shop_code}', [TimeCardController::class, 'index'])->name('timecard.index');
+    Route::get('/timecard/{shop_code}/input/{id}', [TimeCardController::class, 'input'])->name('timecard.input');
 });
 
 
