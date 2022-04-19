@@ -12,8 +12,10 @@ class DashboardController extends Controller
 {
     public function index ()
     {
-        $tenant_id = Auth::user()->tenant_id;
-        $shopList = Shop::where('tenant_id',$tenant_id)->get();
+        $shopList = Shop::TenantIdEqual(Auth::user()->tenant_id)->get();
+        foreach($shopList as $shop){
+            $shop->timecard_url = route( 'timecard.index' ,[ 'shop_code' => $shop->shop_code ]);
+        }
         return view('dashboard',compact('shopList'));
     }
 }

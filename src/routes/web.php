@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\TimeCardController;
+use App\Http\Controllers\Front\TimeCardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +26,11 @@ Route::prefix($authRoute['prefix'])->middleware(['auth'])->group(function () use
 
     Route::get('/timecard/{shop_code}', [TimeCardController::class, 'index'])->name('timecard.index');
     Route::get('/timecard/{shop_code}/input/{id}', [TimeCardController::class, 'input'])->name('timecard.input');
+
+    Route::post('/timecard/{shop_code}/work-start', [TimeCardController::class, 'workStart'])->name('timecard.work-start');
+    Route::post('/timecard/{shop_code}/break-start', [TimeCardController::class, 'breakStart'])->name('timecard.break-start');
+    Route::post('/timecard/{shop_code}/break-end', [TimeCardController::class, 'breakEnd'])->name('timecard.break-end');
+    Route::post('/timecard/{shop_code}/work-end', [TimeCardController::class, 'workEnd'])->name('timecard.work-end');
 });
 
 

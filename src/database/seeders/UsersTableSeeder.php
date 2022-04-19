@@ -16,29 +16,67 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         DB::table('users')->truncate();
 
         DB::table('users')->insert([
             [
                 'tenant_id' => 1,
-                'name' => 'テスト管理者1',
+                'name' => 'テストuser1',
                 'email' => 'test1@dev.com',
                 'email_verified_at' => null,
                 'password' => Hash::make('password'),
+                'pin' => 0000,
+                'deleted_at' => null,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'tenant_id' => 1,
+                'name' => 'テストuser2',
+                'email' => 'test2@dev.com',
+                'email_verified_at' => null,
+                'password' => Hash::make('password'),
+                'pin' => 0000,
+                'deleted_at' => null,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'tenant_id' => 1,
+                'name' => 'テストuser3',
+                'email' => 'test3@dev.com',
+                'email_verified_at' => null,
+                'password' => Hash::make('password'),
+                'pin' => 0000,
                 'deleted_at' => null,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
                 'tenant_id' => 2,
-                'name' => 'テスト管理者2',
-                'email' => 'test2@dev.com',
+                'name' => 'テストuser4',
+                'email' => 'test4@dev.com',
                 'email_verified_at' => null,
                 'password' => Hash::make('password'),
+                'pin' => 0000,
+                'deleted_at' => null,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'tenant_id' => 2,
+                'name' => 'テストuser5',
+                'email' => 'test5@dev.com',
+                'email_verified_at' => null,
+                'password' => Hash::make('password'),
+                'pin' => 0000,
                 'deleted_at' => null,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
         ]);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

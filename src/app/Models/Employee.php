@@ -10,8 +10,4 @@ class Employee extends Model
 {
     use HasFactory,SoftDeletes;
 
-    public function shops()
-    {
-        return $this->belongsToMany(Shop::class);
-    }
 }

@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('work_records', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('employee_id');
+            $table->unsignedBigInteger('shop_id');
+            $table->unsignedBigInteger('user_id');
             $table->date('work_date');
             $table->unsignedTinyInteger('work_status');
             $table->dateTime('punch_clock')->nullable();

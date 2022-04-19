@@ -21,28 +21,31 @@ class ShopsTableSeeder extends Seeder
 
         DB::table('shops')->insert([
             [
-                'tenant_id' => 1,
-                'name' => 'クリーニング１号店',
+                'tenant_id'  => 1,
+                'name'       => 'クリーニング１号店',
+                'shop_code'  => uniqid(),
                 'deleted_at' => null,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'tenant_id' => 1,
-                'name' => 'クリーニング２号店',
+                'tenant_id'  => 1,
+                'name'       => 'クリーニング２号店',
+                'shop_code'  => uniqid(),
                 'deleted_at' => null,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'tenant_id' => 2,
-                'name' => 'カフェ１号店',
+                'tenant_id'  => 2,
+                'name'       => 'カフェ１号店',
+                'shop_code'  => uniqid(),
                 'deleted_at' => null,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
         ]);
 
-        
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');        
     }
 }

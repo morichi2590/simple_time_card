@@ -1,12 +1,23 @@
 @extends('front.app')
 @section('content')
+
+@if( session('notification') )
+<div id="notification">
+    <div class="w-full bg-green-400 shadow-md opacity-75">
+        <div class="box-center py-2 text-center">
+            <h2 class="text-base text-white">{{session('notification')}}</h2>
+        </div>
+    </div>
+</div>
+@endif
 <ul class="divide-y divide-solid">
-    @foreach($emloyeeList as $employee)
+    @foreach($userList as $user)
     <li>
-        <a href="{{route('timecard.input',[ 'shop_code' => $shop_id ,'id' => $employee->id ])}}" class="bg-white flex flex-row py-3">
-            <div class="basis-1/4 flex justify-center"><div class="border-solid border-2 shadow-sm w-14 h-14 rounded-full"><img class="object-cover rounded-full" src="avator.png" alt=""></div></div>
-            <div class="basis-1/2 flex items-center"><p class="text-lg">{{$employee->name_last.' '.$employee->name_first}}</p></div>
-            <div class="basis-1/4 flex items-center"><div class="flex-col"><p>出勤 10:00</p><p>退勤 --:--</p></div></div>
+        <a href="{{ $user->input_url }}" class="bg-white flex flex-row py-3">
+            <div class="px-2"></div>
+            <div class="basis-1/2 flex items-center"><p class="text-lg">{{$user->name}}</p></div>
+            <div class="basis-1/4 flex items-center"><div class="flex-col"><p>出勤 {{ $user->work_start }}</p><p>退勤 {{ $user->work_end }}</p></div></div>
+            <div class="basis-1/4 flex items-center"><div class="flex-col"><p>休始 {{ $user->break_start }}</p><p>休終 {{ $user->break_end }}</p></div></div>
         </a>
     </li>
     @endforeach

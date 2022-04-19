@@ -46,4 +46,17 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Tenant::class);
     }
+
+    public function shops()
+    {
+        return $this->belongsToMany(Shop::class);
+    }
+
+    public function isExistUserPin($user_id,$pin)
+    {
+        return $this->query()
+        ->where('id',$user_id)
+        ->where('pin',$pin)
+        ->exists();
+    }
 }
